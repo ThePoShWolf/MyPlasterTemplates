@@ -64,6 +64,10 @@
     />
     <file
       source=''
+      destination='src\classes'
+    />
+    <file
+      source=''
       destination='src\private'
     />
     <file
