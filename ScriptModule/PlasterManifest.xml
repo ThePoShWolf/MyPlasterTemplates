@@ -2,7 +2,7 @@
 <plasterManifest schemaVersion="1.1" templateType="Project" 
   xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
   <metadata>
-    <name>The PoSh Wolf Script Module</name>
+    <name>ThePoShWolfScriptModule</name>
     <id>c24e12aa-b6b9-4cea-8f01-b5f16506db65</id>
     <version>0.0.1</version>
     <title>ScriptModuleTemplate</title>
