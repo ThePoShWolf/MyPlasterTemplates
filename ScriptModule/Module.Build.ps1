@@ -19,7 +19,7 @@ task Clean {
 }
 
 # Build the docs, depends on PlatyPS
-task DocBuild ModuleBuild,{
+task DocBuild ModuleBuild, {
     if (-not (Test-Path $docPath)) {
         New-Item $docPath -ItemType Directory
     }
@@ -71,7 +71,7 @@ Task Test ModuleBuild, {
     Invoke-Pester $testPath
 }
 
-task Publish Test, DocBuild {
+task Publish Test, DocBuild, {
     Invoke-PSDeploy -Force
 }
 
