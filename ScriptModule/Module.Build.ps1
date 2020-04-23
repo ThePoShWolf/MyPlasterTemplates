@@ -19,12 +19,15 @@ task Clean {
 }
 
 # Build the docs, depends on PlatyPS
-task DocBuild {
+task DocBuild ModuleBuild,{
+    if (-not (Test-Path $docPath)) {
+        New-Item $docPath -ItemType Directory
+    }
     New-ExternalHelp $docPath -OutputPath "$modulePath\EN-US"
 }
 
 # Build the module
-task ModuleBuild Clean, DocBuild, {
+task ModuleBuild Clean, {
     $moduleScriptFiles = Get-ChildItem $srcPath -Filter *.ps1 -File -Recurse
     if (-not(Test-Path $modulePath)) {
         New-Item $modulePath -ItemType Directory
@@ -68,7 +71,7 @@ Task Test ModuleBuild, {
     Invoke-Pester $testPath
 }
 
-task Publish Test, {
+task Publish Test, DocBuild {
     Invoke-PSDeploy -Force
 }
 
