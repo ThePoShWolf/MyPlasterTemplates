@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plasterManifest schemaVersion="1.1" templateType="Project" 
+<plasterManifest schemaVersion="1.1" templateType="Project"
   xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
   <metadata>
     <name>ThePoShWolfScriptModule</name>
@@ -11,104 +11,50 @@
     <tags>PowerShell, Module, ModuleManifest</tags>
   </metadata>
   <parameters>
-    <parameter
-      name='ModuleName'
-      type='text'
-      prompt='Name of the module' 
+    <parameter name='ModuleName' type='text' prompt='Name of the module' 
     />
-    <parameter
-      name='Description'
-      type='text'
-      prompt='Brief description of module (required for publishing to the PowerShell Gallery)'
+<parameter name='Description' type='text' prompt='Brief description of module (required for publishing to the PowerShell Gallery)'
     />
-    <parameter
-      name='Version'
-      type='text'
-      default='0.0.1'
-      prompt='Enter the version number of the module'
+<parameter name='Version' type='text' default='0.0.1' prompt='Enter the version number of the module'
     />
-    <parameter
-      name='Author'
-      type='user-fullname'
-      prompt="Module author's name"
-      store='text'
+<parameter name='Author' type='user-fullname' prompt="Module author's name" store='text'
     />
-    <parameter
-      name='CompanyName'
-      type='text'
-      prompt='Name of your Company'
-      default='Howell IT, LLC'
+<parameter name='CompanyName' type='text' prompt='Name of your Company' default='Howell IT, LLC'
     />
-    <parameter
-      name='PowerShellVersion'
-      default='6.0'
-      type='text'
-      prompt='Minimum PowerShell version'
+<parameter name='PowerShellVersion' default='6.0' type='text' prompt='Minimum PowerShell version'
     />
-  </parameters>
-  <content>
-    <message>
+</parameters>
+<content>
+<message>
       Creating folder structure
     </message>
-    <file
-      source=''
-      destination='build'
+<file source='' destination='build'
     />
-    <file
-      source=''
-      destination='docs'
+<file source='' destination='docs'
     />
-    <file
-      source=''
-      destination='src'
+<file source='' destination='src'
     />
-    <file
-      source=''
-      destination='src\classes'
+<file source='' destination='src\classes'
     />
-    <file
-      source=''
-      destination='src\private'
+<file source='' destination='src\private'
     />
-    <file
-      source=''
-      destination='src\public'
+<file source='' destination='src\public'
     />
-    <file
-      source=''
-      destination='tests'
+<file source='' destination='tests'
     />
-    <message>
+<message>
       Deploying common files
     </message>
-    <file
-      source='Module.Build.ps1'
-      destination='${PLASTER_PARAM_ModuleName}.Build.ps1'
+<file source='Module.Build.ps1' destination='${PLASTER_PARAM_ModuleName}.Build.ps1'
     />
-    <file
-      source='Module.PSDeploy.ps1'
-      destination='${PLASTER_PARAM_ModuleName}.PSDeploy.ps1'
+<file source='onload.ps1' destination='src\onload.ps1'
     />
-    <file
-      source='onload.ps1'
-      destination='src\onload.ps1'
+<file source='using.ps1' destination='src\using.ps1'
     />
-    <file
-      source='using.ps1'
-      destination='src\using.ps1'
-    />
-    <message>
+<message>
       Creating Module Manifest
     </message>
-    <newModuleManifest
-      destination='src\${PLASTER_PARAM_ModuleName}.psd1'
-      moduleVersion='$PLASTER_PARAM_Version'
-      rootModule='${PLASTER_PARAM_ModuleName}.psm1'
-      author='$PLASTER_PARAM_Author'
-      companyName='$PLASTER_PARAM_CompanyName'
-      description='$PLASTER_PARAM_Description'
-      powerShellVersion='$PLASTER_PARAM_PowerShellVersion'
-      encoding='UTF8-NoBOM'
+<newModuleManifest destination='src\${PLASTER_PARAM_ModuleName}.psd1' moduleVersion='$PLASTER_PARAM_Version' rootModule='${PLASTER_PARAM_ModuleName}.psm1' author='$PLASTER_PARAM_Author' companyName='$PLASTER_PARAM_CompanyName' description='$PLASTER_PARAM_Description' powerShellVersion='$PLASTER_PARAM_PowerShellVersion' encoding='UTF8-NoBOM'
     />
-  </content>
+</content>
 </plasterManifest>
